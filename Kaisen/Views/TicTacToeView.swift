@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TicTacToeView: View {
+    
+    @ObservedObject var TicTacToe = TicTacToeModel()
+    
     var body: some View {
         ZStack {
             WindowView()
@@ -20,12 +23,49 @@ struct TicTacToeView: View {
                     VStack {
                         Text("Tic Tac Toe")
                             .foregroundStyle(.white)
-                            .font(.system(size: 150))
-                            .offset(y:  -80)
+                            .font(.custom("Minecraft.ttf", size: 150))
+//                            .font(.system(size: 150))
+                            .offset(y:  -20)
                         
                         
-                        Image("TicTacToeBoard")
+                        ZStack {
+                            Image("TicTacToeBoard")
+                                .resizable()
+                                .offset(y: -150)
+                                .frame(width: 600, height: 600)
+                            
+                            let col = Array(repeating: GridItem(.flexible()), count: 3)
+                            
+                            LazyVGrid(columns: col, spacing: 80) {
+                                ForEach(0..<9) { i in
+                                    Button {
+                                        TicTacToe.buttonTap(i: i)
+                                    } label: {
+                                        Text(TicTacToe.buttonLabel(i: i))
+                                            .frame(width: 100, height: 100)
+                                            .background(.clear)
+                                            .foregroundStyle(.white)
+                                            .font(.system(size: 45, weight: .heavy))
+                                    }
+
+                                }
+                            }
+                            .padding()
+                            .frame(width: 600)
                             .offset(y: -150)
+                        }
+                        
+                        Button {
+                            TicTacToe.resetGame()
+                        } label: {
+                            Text("Restart Game")
+                                .frame(width: 200, height: 50)
+                                .background(.yellow)
+                                .foregroundStyle(.white)
+                                .font(.system(size: 20, weight: .heavy))
+                                .clipShape(.capsule)
+                        }
+
                     }
                 )
 

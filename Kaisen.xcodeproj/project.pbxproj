@@ -29,9 +29,22 @@
 		1EBC97D92D90D44A004E212F /* KaisenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaisenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1ECB11832D91E6A5001C5A19 /* Exceptions for "Kaisen" folder in "Kaisen" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 1EBC97BE2D90D448004E212F /* Kaisen */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1EBC97C12D90D448004E212F /* Kaisen */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1ECB11832D91E6A5001C5A19 /* Exceptions for "Kaisen" folder in "Kaisen" target */,
+			);
 			path = Kaisen;
 			sourceTree = "<group>";
 		};
@@ -399,6 +412,7 @@
 				DEVELOPMENT_TEAM = 22PRLCDTWD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Kaisen/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Kaisen;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -435,6 +449,7 @@
 				DEVELOPMENT_TEAM = 22PRLCDTWD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Kaisen/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Kaisen;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
