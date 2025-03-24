@@ -9,7 +9,18 @@ import SwiftUI
 
 struct WindowView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            HomeView()
+            
+            Image("WindowBorder")
+                .resizable()
+                .frame(width: 1320, height: 761)
+                .offset(/*x: -17,*/ y: -107)
+            
+            Rectangle()
+                .frame(width: 1298, height: 724.5)
+                .offset(/*x: -17,*/ y: -99.5)
+        }
     }
 }
 
