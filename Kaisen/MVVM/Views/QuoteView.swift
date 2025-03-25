@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct QuoteView: View {
+    
+    @Environment(\.dismiss) var dismiss
+    let quote: String
+    @Binding var showingPopUp: Bool
+    
     var body: some View {
         RoundedRectangle(cornerRadius: 25)
             .fill(Color.white)
@@ -21,12 +26,12 @@ struct QuoteView: View {
                     
                     Spacer()
                     
-                    Text("Those Who Do Not Understand True Pain Can Never Understand True Peace.")
+                    Text(quote)
                         .font(.custom("Minecraft", size: 48))
 //                        .padding(.trailing, 100)
                     
                     Button {
-                        
+                        showingPopUp.toggle()
                     } label: {
                         Image(systemName: "arrow.forward.square.fill")
                             .font(.system(size: 48))
@@ -41,5 +46,5 @@ struct QuoteView: View {
 }
 
 #Preview {
-    QuoteView()
+    QuoteView(quote: "Example quote", showingPopUp: .constant(true))
 }
