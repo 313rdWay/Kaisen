@@ -12,7 +12,7 @@ struct HomeView: View {
         Image("HomeScreen")
             .resizable()
             .ignoresSafeArea()
-            .frame(width: 1376, height: 1024)
+//            .frame(width: 1376, height: 1024)
         
     }
 }

@@ -18,7 +18,7 @@ struct WindowView: View {
                 .offset(/*x: -17,*/ y: -107)
             
             Rectangle()
-                .fill(.lightPurple)
+                .fill(LinearGradient(colors: [.lightPurple, .darkpurple], startPoint: .top, endPoint: .bottom))
                 .frame(width: 1298, height: 724.5)
                 .offset(/*x: -17,*/ y: -99.5)
         }

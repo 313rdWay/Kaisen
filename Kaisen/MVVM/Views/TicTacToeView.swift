@@ -15,15 +15,15 @@ struct TicTacToeView: View {
         ZStack {
             WindowView()
             
-            Rectangle()
-                .fill(.lightPurple)
-                .frame(width: 1298, height: 724.5)
-                .offset(/*x: -17,*/ y: -99.5)
-                .overlay(
+//            Rectangle()
+//                .fill(.lightPurple)
+//                .frame(width: 1298, height: 724.5)
+//                .offset(/*x: -17,*/ y: -99.5)
+//                .overlay(
                     VStack {
                         Text("Tic Tac Toe")
                             .foregroundStyle(.white)
-                            .font(.custom("Minecraft.ttf", size: 150))
+                            .font(.custom("Minecraft", size: 150))
 //                            .font(.system(size: 150))
                             .offset(y:  -20)
                         
@@ -31,7 +31,7 @@ struct TicTacToeView: View {
                         ZStack {
                             Image("TicTacToeBoard")
                                 .resizable()
-                                .offset(y: -150)
+                                .offset(y: -110)
                                 .frame(width: 600, height: 600)
                             
                             let col = Array(repeating: GridItem(.flexible()), count: 3)
@@ -52,7 +52,7 @@ struct TicTacToeView: View {
                             }
                             .padding()
                             .frame(width: 600)
-                            .offset(y: -150)
+                            .offset(y: -110)
                         }
                         
                         Button {
@@ -64,10 +64,11 @@ struct TicTacToeView: View {
                                 .foregroundStyle(.white)
                                 .font(.system(size: 20, weight: .heavy))
                                 .clipShape(.capsule)
+//                                .offset(x: 500, y: -200)
                         }
-
+                        .offset(x: 500, y: -200)
                     }
-                )
+//                )
 
         }
         

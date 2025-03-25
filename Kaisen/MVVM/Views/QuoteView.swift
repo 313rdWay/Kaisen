@@ -22,8 +22,19 @@ struct QuoteView: View {
                     Spacer()
                     
                     Text("Those Who Do Not Understand True Pain Can Never Understand True Peace.")
-                        .font(.system(size: 48))
-                        .padding(.trailing, 100)
+                        .font(.custom("Minecraft", size: 48))
+//                        .padding(.trailing, 100)
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "arrow.forward.square.fill")
+                            .font(.system(size: 48))
+                            .foregroundStyle(.black)
+                            .padding(.top, 100)
+                            .padding()
+                    }
+
                 }
             }
     }
