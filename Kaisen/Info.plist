@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Minecraft.ttf</string>
+		<string>PressStart2P.ttf</string>
 	</array>
 </dict>
 </plist>

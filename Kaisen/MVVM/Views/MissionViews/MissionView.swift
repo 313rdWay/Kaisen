@@ -10,13 +10,19 @@ import SwiftUI
 struct MissionView: View {
     
     @EnvironmentObject var colorManager: ColorManager
-
+    var missionData: [MissionDetail] = missions
     
     var body: some View {
-        WindowView()
+        
+       TabView {
+            ForEach(missionData) {item in
+                MissionCardView(missionDetail: item)
+            }
+        }
+       .tabViewStyle(PageTabViewStyle())
+            .ignoresSafeArea()
     }
 }
-
 #Preview {
     MissionView()
         .environmentObject(ColorManager())
