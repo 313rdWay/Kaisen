@@ -11,35 +11,42 @@ struct HomeView: View {
     
     @State private var showingPopUp = true
     @State private var randomQuote = ""
+    @State private var navigateToTimer = false
     
     var body: some View {
-        ZStack {
-            Image("HomeScreen")
-                .resizable()
-                .ignoresSafeArea()
-            //            .frame(width: 1376, height: 1024)
-            
-            if showingPopUp {
-                //                Color.black.opacity(0.5)
-                //                    .ignoresSafeArea()
-                //                    .onTapGesture {
-                //                        showingPopUp = false
-                //                    }
+        NavigationStack {
+            ZStack {
+                Image("HomeScreen")
+                    .resizable()
+                    .ignoresSafeArea()
                 
-                QuoteView(quote: randomQuote, showingPopUp: $showingPopUp)
-                //                    .frame(width: 300, height: 200)
-                    .background(Color.white)
-                    .cornerRadius(20)
-                    .shadow(radius: 10)
-                    .transition(.scale)
-                    .offset(y: 150)
+                Button {
+                    navigateToTimer = true
+                } label: {
+                    Image("timerIcon")
+                        .resizable()
+                        .frame(width: 150, height: 150)
+                }
+                .offset(x: 500, y: -350)
+
+                .navigationDestination(isPresented: $navigateToTimer) {
+                    TimerView()
+                }
+                
+                if showingPopUp {
+                    QuoteView(quote: randomQuote, showingPopUp: $showingPopUp)
+                        .background(Color.white)
+                        .cornerRadius(20)
+                        .shadow(radius: 10)
+                        .transition(.scale)
+                        .offset(y: 150)
+                }
+            }
+            .onAppear {
+                scheduleRandomPopup()
             }
         }
-        .onAppear {
-            scheduleRandomPopup()
-        }
     }
-    
     func scheduleRandomPopup() {
         let randomTime = Double.random(in: 5...20) // Random time between 5-20 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + randomTime) {
@@ -58,6 +65,7 @@ struct HomeView: View {
         }
     }
 }
+    
 #Preview {
     HomeView()
 }

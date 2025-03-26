@@ -45,7 +45,7 @@ struct TicTacToeView: View {
                                             .frame(width: 100, height: 100)
                                             .background(.clear)
                                             .foregroundStyle(.white)
-                                            .font(.system(size: 45, weight: .heavy))
+                                            .font(.system(size: 140, weight: .heavy))
                                     }
 
                                 }

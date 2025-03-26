@@ -20,9 +20,18 @@ struct QuoteView: View {
             .shadow(radius: 10, y: 5)
             .overlay {
                 HStack {
-                    RoundedRectangle(cornerRadius: 25)
-                        .frame(width: 155, height: 155)
-                        .padding(.leading)
+                    Image("fredSmile")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .mask {
+                            RoundedRectangle(cornerRadius: 25)
+                                .fill(Color.orange)
+                                .frame(width: 175, height: 175)
+                                .padding(.leading)
+                        }
+                    
+                    
                     
                     Spacer()
                     
