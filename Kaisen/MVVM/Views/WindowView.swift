@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WindowView: View {
+    
+    @EnvironmentObject var colorManager: ColorManager
+
     var body: some View {
         ZStack {
             HomeView()
@@ -18,7 +21,7 @@ struct WindowView: View {
                 .offset(/*x: -17,*/ y: -107)
             
             Rectangle()
-                .fill(LinearGradient(colors: [.lightPurple, .darkpurple], startPoint: .top, endPoint: .bottom))
+                .fill(colorManager.primaryBackgroundColor)
                 .frame(width: 1298, height: 724.5)
                 .offset(/*x: -17,*/ y: -99.5)
         }
@@ -27,4 +30,5 @@ struct WindowView: View {
 
 #Preview {
     WindowView()
+        .environmentObject(ColorManager())
 }

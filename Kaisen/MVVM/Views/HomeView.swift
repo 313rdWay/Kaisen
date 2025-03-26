@@ -12,6 +12,8 @@ struct HomeView: View {
     @State private var showingPopUp = true
     @State private var randomQuote = ""
     @State private var navigateToTimer = false
+    @EnvironmentObject var colorManager: ColorManager
+
     
     var body: some View {
         NavigationStack {
@@ -30,7 +32,8 @@ struct HomeView: View {
                 .offset(x: 500, y: -350)
 
                 .navigationDestination(isPresented: $navigateToTimer) {
-                    TimerView()
+                    TimerViewMainMenu()
+                        .navigationBarBackButtonHidden()
                 }
                 
                 if showingPopUp {
@@ -68,4 +71,5 @@ struct HomeView: View {
     
 #Preview {
     HomeView()
+        .environmentObject(ColorManager())
 }

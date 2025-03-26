@@ -12,10 +12,12 @@ struct QuoteView: View {
     @Environment(\.dismiss) var dismiss
     let quote: String
     @Binding var showingPopUp: Bool
+    @EnvironmentObject var colorManager: ColorManager
+
     
     var body: some View {
         RoundedRectangle(cornerRadius: 25)
-            .fill(Color.white)
+            .fill(colorManager.secondaryColor)
             .frame(width: 1186, height: 218)
             .shadow(radius: 10, y: 5)
             .overlay {
@@ -56,4 +58,5 @@ struct QuoteView: View {
 
 #Preview {
     QuoteView(quote: "Example quote", showingPopUp: .constant(true))
+        .environmentObject(ColorManager())
 }

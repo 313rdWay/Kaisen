@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var colorManager: ColorManager
+    
     var body: some View {
         HomeView()
     }
@@ -15,4 +18,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(ColorManager())
 }

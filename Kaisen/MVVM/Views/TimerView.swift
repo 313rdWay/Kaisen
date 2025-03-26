@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TimerView: View {
+    
+    @EnvironmentObject var colorManager: ColorManager
+
     var body: some View {
         WindowView()
     }
@@ -15,4 +18,5 @@ struct TimerView: View {
 
 #Preview {
     TimerView()
+        .environmentObject(ColorManager())
 }

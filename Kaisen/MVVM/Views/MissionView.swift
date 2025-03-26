@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MissionView: View {
+    
+    @EnvironmentObject var colorManager: ColorManager
+
+    
     var body: some View {
         WindowView()
     }
@@ -15,4 +19,5 @@ struct MissionView: View {
 
 #Preview {
     MissionView()
+        .environmentObject(ColorManager())
 }

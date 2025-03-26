@@ -10,6 +10,7 @@ import SwiftUI
 struct TicTacToeView: View {
     
     @ObservedObject var TicTacToe = TicTacToeModel()
+    @EnvironmentObject var colorManager: ColorManager
     
     var body: some View {
         ZStack {
@@ -77,4 +78,5 @@ struct TicTacToeView: View {
 
 #Preview {
     TicTacToeView()
+        .environmentObject(ColorManager())
 }

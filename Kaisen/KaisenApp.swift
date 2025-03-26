@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct KaisenApp: App {
+    
+    @StateObject var colorManager = ColorManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(colorManager)
         }
     }
 }

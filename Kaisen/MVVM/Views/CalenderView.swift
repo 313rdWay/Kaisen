@@ -12,6 +12,8 @@ struct CalendarTaskTrackerView: View {
     @State private var selectedDate: Date = Date()
     @State private var tasks: [Date: String] = [:]
     @State private var newTask: String = ""
+    @EnvironmentObject var colorManager: ColorManager
+
     
     var body: some View {
         VStack {
@@ -53,4 +55,5 @@ struct CalendarTaskTrackerView: View {
 }
 #Preview {
     CalendarTaskTrackerView()
+        .environmentObject(ColorManager())
 }
