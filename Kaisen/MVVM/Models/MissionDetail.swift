@@ -13,6 +13,7 @@ struct MissionDetail: Identifiable {
     var description: String
     
 }
+
 let missions: [MissionDetail] = [
     MissionDetail(title: "New Mission", description: "Your mission is to summon the mentors! – Share your project with two people to unlock wisdom from the sages."),
     MissionDetail(title: "Your mission is to forge your first blade", description: "Create a small 3D model as your first artifact."),
@@ -24,6 +25,10 @@ let missions: [MissionDetail] = [
                  return a/ b
                  
                  print(divide_numbers(10.0))# Uh oh, what's wrong here?
-                 """)
+                 """),
+    MissionDetail(title: "Your mission is to master the art of style shift jutsu!", description: "Recreate a 3D asset in three different artistic styles."),
+    MissionDetail(title: "Your mission is to make a grand announcement!", description: "Post a progress update on LinkedIn and let the world witness your evolution."),
+    
 ]
+
 

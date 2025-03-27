@@ -38,7 +38,8 @@ struct QuoteView: View {
                     Spacer()
                     
                     Text(quote)
-                        .font(.custom("Minecraft", size: 48))
+//                        .font(.custom("Minecraft", size: 48))
+                        .font(.custom("PressStart2P", size: 30))
 //                        .padding(.trailing, 100)
                     
                     Button {

@@ -10,6 +10,7 @@ import SwiftUI
 struct TimerViewMainMenu: View {
     
     @State private var navigateBackHome = false
+    @State private var navigateToPomoTimer = false
     @EnvironmentObject var colorManager: ColorManager
 
 
@@ -43,21 +44,31 @@ struct TimerViewMainMenu: View {
 
                     
                     HStack(spacing: 20) {
-                        
-                        Rectangle()
+                        Button {
+                            navigateToPomoTimer = true
+                        } label: {
+                            Rectangle()
                             .fill(colorManager.secondaryColor)
                             .frame(width: 500, height: 500)
                             .cornerRadius(10)
                             .shadow(radius: 10, y: 5)
                             .overlay(TimerButton(title: "Pomodoro Timer"))
                             .padding(.trailing, 100)
-                        
-                        Rectangle()
+                        }
+                        .navigationDestination(isPresented: $navigateToPomoTimer) {
+                            PomodoroTimerView()
+                        }
+
+                        Button {
+                            
+                        } label: {
+                            Rectangle()
                             .fill(colorManager.secondaryColor)
                             .frame(width: 500, height: 500)
                             .cornerRadius(10)
                             .shadow(radius: 10, y: 5)
                             .overlay(TimerButton(title: "Stopwatch Timer"))
+                        }
                     }
                     .padding(.bottom, 260)
                 }

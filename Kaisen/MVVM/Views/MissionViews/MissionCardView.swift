@@ -2,7 +2,7 @@
 //  MissionCardView.swift
 //  Kaisen
 //
-//  Created by Davaughn Williams on 3/26/25.
+//  Created by Breona Clawson on 3/26/25.
 //
 
 import SwiftUI
@@ -22,10 +22,11 @@ struct MissionCardView: View {
             VStack {
                 Text(missionDetail.title)
                     .font(.custom("Press Start 2P", size: 30))
-                    .padding(.bottom, 20)
+                    .padding()
+                
+                    .padding(.bottom, 60)
                 Text(missionDetail.description)
                     .font(.custom("Press Start 2P", size: 30))
-                    .multilineTextAlignment(.center)
                     .frame(maxWidth:.infinity,maxHeight:400)
                 
                     .overlay(
@@ -36,6 +37,7 @@ struct MissionCardView: View {
                     .background(.box)
             }
             .padding()
+            .multilineTextAlignment(.center)
         }
         
         }

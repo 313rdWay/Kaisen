@@ -10,4 +10,6 @@ import SwiftUI
 class ColorManager: ObservableObject {
     @Published var primaryBackgroundColor: LinearGradient = LinearGradient(colors: [.lightPurple, .darkpurple], startPoint: .top, endPoint: .bottom)
     @Published var secondaryColor: LinearGradient = LinearGradient(colors: [.lightyellow, .darkYellow], startPoint: .top, endPoint: .bottom)
+    @Published var tertiaryColor: Color = Color.box
 }
+ 
