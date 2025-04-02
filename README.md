@@ -8,3 +8,8 @@
 - [Lessly Romero-Rodriguez](https://github.com/Lessley2830)
 - [Shay Johnson](https://github.com/Shay1Johnson)
 
+
+## Promo Video
+
+[Video](KaisenAssets/Kaisen%20Promo.mp4)
+
