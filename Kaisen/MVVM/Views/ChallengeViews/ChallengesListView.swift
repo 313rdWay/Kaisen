@@ -45,21 +45,27 @@ struct ChallengesListView: View {
                         }
                         
                     }
-                    List {
-                        if challengesVM.challenges.isEmpty {
-                            Text("No challenges available. Add some!")
-                                .font(.custom("Minecraft", size: 100))
-                                .foregroundStyle(.white)
-                        } else {
+//                    ZStack {
+                        
+//                        colorManager.primaryBackgroundColor.ignoresSafeArea()
+                        
+                        List {
+                            if challengesVM.challenges.isEmpty {
+                                Text("No challenges available. Add some!")
+                                    .font(.custom("Minecraft", size: 100))
+                                    .foregroundStyle(.white)
+                            } else {
                                 ForEach(challengesVM.challenges) { challenge in
-                                    ChallengeCardView(challenge:  challenge)
+                                    ChallengeCardView(challenge: challenge)
                                         .padding(.bottom, 10)
                                         .environmentObject(challengesVM)
                                 }
                                 .onDelete(perform: deleteChallenge)
-//                            .listStyle(PlainListStyle())
+                            }
                         }
-                    }
+                        .scrollContentBackground(.hidden) // Hides default white background
+                        .background(colorManager.primaryBackgroundColor) // Applies custom background
+//                    }
                 }
                 .frame(width: 1298, height: 724.5)
                 .offset(y: -100)
