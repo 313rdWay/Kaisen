@@ -11,11 +11,14 @@ import SwiftUI
 struct KaisenApp: App {
     
     @StateObject var colorManager = ColorManager()
+    @StateObject var challengesVM = ChallengesViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(colorManager)
+                .environmentObject(challengesVM)
+            
         }
     }
 }

@@ -45,16 +45,19 @@ struct ChallengesListView: View {
                         }
                         
                     }
-                    ScrollView {
+                    List {
                         if challengesVM.challenges.isEmpty {
                             Text("No challenges available. Add some!")
                                 .font(.custom("Minecraft", size: 100))
                                 .foregroundStyle(.white)
                         } else {
-                            ForEach(challengesVM.challenges) { challenge in
-                                ChallengeCardView(challenge:  challenge)
-                                    .padding(.bottom, 10)
-                            }
+                                ForEach(challengesVM.challenges) { challenge in
+                                    ChallengeCardView(challenge:  challenge)
+                                        .padding(.bottom, 10)
+                                        .environmentObject(challengesVM)
+                                }
+                                .onDelete(perform: deleteChallenge)
+//                            .listStyle(PlainListStyle())
                         }
                     }
                 }
@@ -67,7 +70,13 @@ struct ChallengesListView: View {
 //        .frame(width: 1298, height: 724.5)
 //        .offset(y: -100)
     }
+    
+    private func deleteChallenge(at offsets: IndexSet) {
+        challengesVM.challenges.remove(atOffsets: offsets)
+    }
+    
 }
+
 #Preview {
     ChallengesListView()
         .environmentObject(ColorManager())
