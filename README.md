@@ -11,8 +11,4 @@
 
 ## Promo Video
 
-<video width="600" controls>
-  <source src="KaisenAssets/Kaisen%20Promo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
+https://raw.githubusercontent.com/your-username/your-repo/main/KaisenAssets/Kaisen%20Promo.mp4
