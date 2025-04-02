@@ -11,6 +11,7 @@ struct TimerViewMainMenu: View {
     
     @State private var navigateBackHome = false
     @State private var navigateToPomoTimer = false
+    @State private var navigateToStopwatch = false
     @EnvironmentObject var colorManager: ColorManager
 
 
@@ -57,10 +58,12 @@ struct TimerViewMainMenu: View {
                         }
                         .navigationDestination(isPresented: $navigateToPomoTimer) {
                             PomodoroTimerView()
+//                                .navigationBarBackButtonHidden()
+
                         }
 
                         Button {
-                            
+                            navigateToStopwatch = true
                         } label: {
                             Rectangle()
                             .fill(colorManager.secondaryColor)
@@ -68,6 +71,11 @@ struct TimerViewMainMenu: View {
                             .cornerRadius(10)
                             .shadow(radius: 10, y: 5)
                             .overlay(TimerButton(title: "Stopwatch Timer"))
+                        }
+                        .navigationDestination(isPresented: $navigateToStopwatch) {
+                            StopwatchView()
+//                                .navigationBarBackButtonHidden()
+
                         }
                     }
                     .padding(.bottom, 260)

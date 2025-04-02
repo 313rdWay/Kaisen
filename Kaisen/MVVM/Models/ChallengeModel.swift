@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct ChallengeModel {
-    let title: String
-    let description: String?
-    let checkpoints: [String]?
-    let resources: [String]?
+struct Challenge: Identifiable, Codable {
+    var id = UUID()
+    var title: String
+    var description: String
+    var checkpoints: [String]
+    var resources: [String]
 }

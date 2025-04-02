@@ -36,15 +36,15 @@ struct ChallengeListCard: View {
                 }
                 ScrollView {
                     LazyVStack {
-                        ChallengeCardView()
+//                        ChallengeCardView()
                         
-                            .padding()
+//                            .padding()
                         
-                        ChallengeCardView()
+//                        ChallengeCardView()
                         
-                            .padding()
+//                            .padding()
                         
-                        ChallengeCardView()
+//                        ChallengeCardView()
                     }
                 }
             }

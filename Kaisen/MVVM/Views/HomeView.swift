@@ -9,9 +9,13 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State private var showingPopUp = true
+    @State private var showingPopUp = false
     @State private var randomQuote = ""
     @State private var navigateToTimer = false
+    @State private var navigateToMissions = false
+    @State private var navigateToChallenges = false
+    @State private var navigateToTicTacGame = false
+    
     @EnvironmentObject var colorManager: ColorManager
 
     
@@ -22,19 +26,52 @@ struct HomeView: View {
                     .resizable()
                     .ignoresSafeArea()
                 
-                Button {
-                    navigateToTimer = true
-                } label: {
-                    Image("timerIcon")
-                        .resizable()
-                        .frame(width: 150, height: 150)
+                HStack {
+                    Button {
+                        navigateToTimer = true
+                    } label: {
+                        Image("timerIcon")
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                    }
+                    .offset(x: 500, y: -350)
+                    
+                    .navigationDestination(isPresented: $navigateToTimer) {
+                        TimerViewMainMenu()
+                            .navigationBarBackButtonHidden()
+                    }
+                    
+                    Button {
+                        navigateToMissions = true
+                    } label: {
+                        Image("hornIcon")
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                    }
+                    .offset(x: 500, y: -350)
+                    
+                    .navigationDestination(isPresented: $navigateToMissions) {
+                        MissionView()
+//                            .navigationBarBackButtonHidden()
+                    }
+                    
+                    Button {
+                        navigateToChallenges = true
+                    } label: {
+                        Image("catIcon")
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                    }
+                    .offset(y: -350)
+                    
+                    .navigationDestination(isPresented: $navigateToChallenges) {
+                        ChallengesListView()
+//                            .navigationBarBackButtonHidden()
+                    }
+                    
                 }
-                .offset(x: 500, y: -350)
-
-                .navigationDestination(isPresented: $navigateToTimer) {
-                    TimerViewMainMenu()
-                        .navigationBarBackButtonHidden()
-                }
+                
+                
                 
                 if showingPopUp {
                     QuoteView(quote: randomQuote, showingPopUp: $showingPopUp)
@@ -51,14 +88,14 @@ struct HomeView: View {
         }
     }
     func scheduleRandomPopup() {
-        let randomTime = Double.random(in: 5...20) // Random time between 5-20 seconds
+        let randomTime = Double.random(in: 1 * 60...2 * 60) // Random time between 2 - 10 minutes
         DispatchQueue.main.asyncAfter(deadline: .now() + randomTime) {
             if !showingPopUp { // Only show if not already showing
                 randomQuote = quotes.randomElement() ?? "Stay positive!"
                 showingPopUp = true
                 
                 // Hide pop-up after a few seconds
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
                     showingPopUp = false
                     scheduleRandomPopup() // Schedule the next random pop-up
                 }
