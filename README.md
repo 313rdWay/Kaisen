@@ -11,5 +11,5 @@
 
 ## Promo Video
 
-[Video](KaisenAssets/Kaisen%20Promo.mp4)
+(KaisenAssets/Kaisen%20Promo.mp4)
 
